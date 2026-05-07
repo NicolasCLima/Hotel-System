@@ -1,0 +1,151 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-box {
+  background: linear-gradient(145deg, #1E1D19, #181710);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 0 60px rgba(0,0,0,0.8), 0 0 20px rgba(201,168,76,0.05);
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+}
+
+.modal-title {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.modal-close {
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.modal-close:hover { background: var(--dark-surface); color: var(--text-primary); }
+
+.modal-body { padding: 24px; }
+
+/* Form styles reused in modals */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-grid .full-width { grid-column: 1 / -1; }
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-field label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  color: var(--text-primary);
+  font-size: 14px;
+  width: 100%;
+}
+
+.form-field select option { background: var(--dark); color: var(--text-primary); }
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--gold-dark);
+  background: rgba(201,168,76,0.04);
+  box-shadow: 0 0 0 2px rgba(201,168,76,0.08);
+}
+
+.form-field input.error,
+.form-field select.error { border-color: var(--danger); }
+
+.form-field .err { font-size: 11px; color: var(--danger); }
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--dark-border);
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: #0A0A0A;
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--dark-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--dark-border);
+}
+
+.btn-secondary:hover { border-color: var(--text-muted); color: var(--text-primary); }
+
+.btn-danger {
+  background: rgba(224,82,82,0.15);
+  color: var(--danger);
+  border: 1px solid rgba(224,82,82,0.3);
+}
+
+.btn-danger:hover { background: rgba(224,82,82,0.25); }
+
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
